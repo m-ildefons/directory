@@ -16,6 +16,8 @@ module System.Directory.Internal
 
 #if defined(mingw32_HOST_OS)
   , module System.Directory.Internal.Windows
+#elif defined(__wasi__)
+  , module System.Directory.Internal.Wasi
 #else
   , module System.Directory.Internal.Posix
 #endif
@@ -26,6 +28,8 @@ import System.Directory.Internal.Common
 
 #if defined(mingw32_HOST_OS)
 import System.Directory.Internal.Windows
+#elif defined(__wasi__)
+import System.Directory.Internal.Wasi
 #else
 import System.Directory.Internal.Posix
 #endif
